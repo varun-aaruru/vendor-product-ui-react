@@ -50,14 +50,7 @@ class Product extends React.Component {
             status: "loading"
           }
         })
-        let venNames = (this.props.vendors || []).filter( name => {
-            console.log("sss", name , this.state.modal.vendor)
-            if ( name.vendorname === this.state.modal.vendor ){
-              return true;
-            }else{
-              return false;
-            }
-          }).map(x => x.vendorname)[0]
+        let venNames = this.state.modal.vendor
         //console.log("id is ....",this.state.modal.key)
         let updateapistring = '/api/products/'+this.state.modal.key;
         //console.log("final update api string is...", updateapistring)
@@ -89,14 +82,7 @@ class Product extends React.Component {
             status: "loading"
           }
         })
-        let venNames = (this.props.vendors || []).filter( name => {
-            console.log("sss", name , this.state.modal.vendor)
-            if ( name.vendorname === this.state.modal.vendor ){
-              return true;
-            }else{
-              return false;
-            }
-          }).map(x => x.vendorname)[0]
+        let venNames = this.state.modal.vendor
         Axios.post('/api/products',{
           name :this.state.modal.name,
           price: Number(this.state.modal.price),

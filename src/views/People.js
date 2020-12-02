@@ -52,14 +52,8 @@ class People extends React.Component {
         status: "loading"
       }
     })
-    let produNames = (this.props.products || []).filter( name => {
-      if ( (this.state.modal.products || []).includes(name.name) ){
-        return true;
-      }else{
-        return false;
-      }
-    }).map(x => x.name)
-    console.log(this.state.modal.products, produNames)
+    let produNames = this.state.modal.products
+    console.log("testing",this.state.modal.products, produNames)
     //console.log("id is ....",this.state.modal.key)
     let updateapistring = '/api/vendors/'+this.state.modal.key;
     //console.log("final update api string is...", updateapistring)
@@ -90,13 +84,8 @@ class People extends React.Component {
         status: "loading"
       }
     })
-    let produNames = (this.props.products || []).filter( name => {
-      if ( this.state.modal.products.includes(name.name) ){
-        return true;
-      }else{
-        return false;
-      }
-    }).map(x => x.name)
+
+    let produNames = this.state.modal.products
     Axios.post('/api/vendors',{
       vendorname :this.state.modal.vendorname,
       age: Number(this.state.modal.age),
